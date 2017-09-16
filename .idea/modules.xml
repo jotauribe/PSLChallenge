@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/LCDDisplay.iml" filepath="$PROJECT_DIR$/.idea/modules/LCDDisplay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/LCDDisplay_main.iml" filepath="$PROJECT_DIR$/.idea/modules/LCDDisplay_main.iml" group="LCDDisplay" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/LCDDisplay_test.iml" filepath="$PROJECT_DIR$/.idea/modules/LCDDisplay_test.iml" group="LCDDisplay" />
+    </modules>
+  </component>
+</project>
