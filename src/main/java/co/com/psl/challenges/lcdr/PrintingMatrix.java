@@ -24,13 +24,15 @@ public class PrintingMatrix {
         this.spaceBetweenCharacters = spaceBetweenCharacters;
     }
 
-    public void draw(String string){
+    public void write(String string){
 
         int numberOfCharacters = string.length();
-        int matrixWidth = (numberOfCharacters * charactersWidth) + (spaceBetweenCharacters * (numberOfCharacters - 1));
         int matrixHeight = charactersHeight;
+        int matrixWidth = (numberOfCharacters * charactersWidth)
+                + (spaceBetweenCharacters * (numberOfCharacters - 1));
 
         initMatrix(matrixHeight, matrixWidth);
+        addToMatrix(string);
     }
 
     private void initMatrix(int height, int width){
@@ -41,6 +43,14 @@ public class PrintingMatrix {
             for (int j = 0; j < height; j++) {
                 this.matrix[i][j] = " ";
             }
+        }
+    }
+
+    private void addToMatrix(String string){
+        char[] characters = string.toCharArray();
+
+        for (char character : characters) {
+
         }
     }
 
