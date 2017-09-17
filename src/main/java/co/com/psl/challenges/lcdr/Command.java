@@ -10,7 +10,7 @@ public class Command {
     private static final int DEFAULT_MINIMUM_SIZE_VALUE = 1;
     private static final int DEFAULT_MAXIMUM_SIZE_VALUE = 10;
 
-    //Defines the separator used for divide
+    // Defines the separator used for divide
     // the parameters in the command
     private String separator;
 
@@ -22,7 +22,7 @@ public class Command {
 
     private int size;
 
-    private int digit;
+    private int digits;
 
     public Command(String command) {
         separator = DEFAULT_SEPARATOR;
@@ -30,8 +30,6 @@ public class Command {
         maximumSizeValue = DEFAULT_MAXIMUM_SIZE_VALUE;
         setCommand(command);
         setParameters();
-
-
     }
 
     private void setCommand(String command){
@@ -59,7 +57,7 @@ public class Command {
             );
 
         setSize(parameters[0]);
-        setDigit(parameters[1]);
+        setDigits(parameters[1]);
 
 
     }
@@ -79,9 +77,9 @@ public class Command {
         this.size = size;
     }
 
-    private void setDigit(String string){
+    private void setDigits(String string){
         int digit = getNumberIn(string);
-        this.digit = digit;
+        this.digits = digit;
     }
 
     private int getNumberIn(String string){
@@ -100,7 +98,7 @@ public class Command {
         return size;
     }
 
-    public int getDigit(){
-        return digit;
+    public int getDigits(){
+        return digits;
     }
 }

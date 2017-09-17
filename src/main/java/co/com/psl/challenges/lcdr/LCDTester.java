@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 
 public class LCDTester {
 
@@ -66,7 +65,7 @@ public class LCDTester {
             {
                 try
                 {
-                    impresorLCD.procesar(iterator.next(), espacioDig);
+                    impresorLCD.process(iterator.next(), espacioDig);
                 } catch (Exception ex)
                 {
                     System.out.println("Error: "+ex.getMessage());

@@ -59,36 +59,27 @@ public class LCDPrinter {
 
     /**
      *
-     * Metodo encargado de procesar la entrada que contiene el size del segmento
+     * Metodo encargado de process la entrada que contiene el size del segmento
      * de los digitos y los digitos a imprimir
      *
      * @param aPrimitiveCommand Entrada que contiene el size del segmento de los digito
      * y el numero a imprimir
      * @param spaceBetweenDigits Espacio Entre digitos
      */
-    public void procesar(String aPrimitiveCommand,
-                         int spaceBetweenDigits) {
+    public void process(String aPrimitiveCommand,
+                        int spaceBetweenDigits) {
 
         Command command = new Command(aPrimitiveCommand);
+
         int size = command.getSize();
-        int digit = command.getDigit();
-
-
+        int digit = command.getDigits();
 
         // Realiza la impresion del numero
-        imprimirNumero(size, ""+digit, spaceBetweenDigits);
+        printNumber(size, "" + digit, spaceBetweenDigits);
 
     }
 
     //PRIVATE METHODS
-
-    private void validateCommandStructure(String command){
-        if (!command.contains(",")) {
-            throw new IllegalArgumentException("Cadena " + command
-                    + " no contiene caracter ,");
-        }
-    }
-
 
     /**
      *
@@ -98,9 +89,9 @@ public class LCDPrinter {
      * @param digits Numero a Imprimir
      * @param spaceBetweenDigits Espacio Entre digitos
      */
-    private void imprimirNumero(int size,
-                                String digits,
-                                int spaceBetweenDigits) {
+    private void printNumber(int size,
+                             String digits,
+                             int spaceBetweenDigits) {
         int pivotX = 0;
         char[] digitos;
 
