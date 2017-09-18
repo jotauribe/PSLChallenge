@@ -1,4 +1,4 @@
-# LCD refactor
+# LCD Refactor
 
  
 Objetivo: Crear un programa que imprime números en estilo de una pantalla LCD 

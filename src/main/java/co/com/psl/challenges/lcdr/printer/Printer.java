@@ -1,10 +1,12 @@
-package co.com.psl.challenges.lcdr;
+package co.com.psl.challenges.lcdr.printer;
+
+import co.com.psl.challenges.lcdr.Command;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class LCDPrinter {
+public class Printer {
 
     // Puntos fijos
     private final int[] pf1;
@@ -29,7 +31,7 @@ public class LCDPrinter {
     private int totalFilas;
     private int totalColum;
 
-    public LCDPrinter() {
+    public Printer() {
         // Inicializa variables
         this.pf1 = new int[2];
         this.pf2 = new int[2];
@@ -55,8 +57,6 @@ public class LCDPrinter {
         }
     }
 
-    //PRIVATE METHODS
-
     /**
      *
      * Metodo encargado de process la entrada que contiene el size del segmento
@@ -75,7 +75,7 @@ public class LCDPrinter {
         int digit = command.getDigits();
 
         // Realiza la impresion del numero
-        printNumber(size, "" + digit, spaceBetweenDigits);
+        buildPrintingMatrix(size, "" + digit, spaceBetweenDigits);
 
     }
 
@@ -89,9 +89,9 @@ public class LCDPrinter {
      * @param digits Numero a Imprimir
      * @param spaceBetweenDigits Espacio Entre digitos
      */
-    private void printNumber(int size,
-                             String digits,
-                             int spaceBetweenDigits) {
+    private void buildPrintingMatrix(int size,
+                                     String digits,
+                                     int spaceBetweenDigits) {
         int pivotX = 0;
         char[] digitos;
 

@@ -1,4 +1,4 @@
-package co.com.psl.challenges.lcdr;
+package co.com.psl.challenges.lcdr.printer;
 
 import org.junit.Test;
 
@@ -8,9 +8,9 @@ import static org.junit.Assert.*;
  * Created on 16/9/2017
  * By Jota Uribe
  **/
-public class LCDPrinterTest {
+public class PrinterTest {
     @Test
-    public void procesar() throws Exception {
+    public void process() throws Exception {
     }
 
 }

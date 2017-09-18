@@ -5,6 +5,8 @@ package co.com.psl.challenges.lcdr;
  * By Jota Uribe
  **/
 
+import co.com.psl.challenges.lcdr.printer.Printer;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -29,7 +31,7 @@ public class LCDTester {
                 comando = lector.next();
 
                 // Valida si es un numero
-                if (LCDPrinter.isNumeric(comando))
+                if (Printer.isNumeric(comando))
                 {
                     espacioDig = Integer.parseInt(comando);
 
@@ -58,7 +60,7 @@ public class LCDTester {
                 }while (!comando.equalsIgnoreCase(CADENA_FINAL));
             }
 
-            LCDPrinter impresorLCD = new LCDPrinter();
+            Printer impresorLCD = new Printer();
 
             Iterator<String> iterator = listaComando.iterator();
             while (iterator.hasNext())
