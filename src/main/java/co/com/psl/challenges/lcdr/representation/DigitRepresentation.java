@@ -8,37 +8,37 @@ import java.util.Arrays;
  **/
 public class DigitRepresentation {
 
-    private RepresentationMatrix representationMatrix;
+    private SevenSegmentMatrix representationMatrix;
 
-    private String[][] sevenSegmentMatrix;
+    private char representedDigit;
 
-    private DigitRepresentation(RepresentationMatrix representationMatrix){
+    public static DigitRepresentation create(char digit, int size){
+
+        if (!Character.isDigit(digit))
+            throw  new IllegalArgumentException("A digit must be provided");
+
+        SevenSegmentMatrix digitRepresentationMatrix = SevenSegmentDigitRepresentationFactory
+                                                        .getRepresentationOf(digit, size);
+        return new DigitRepresentation(digit, digitRepresentationMatrix);
+    }
+
+    private DigitRepresentation(char representedDigit,
+                               SevenSegmentMatrix representationMatrix){
+
         this.representationMatrix = representationMatrix;
-    }
-
-    public static DigitRepresentation create(int size){
-        SevenSegmentMatrix representationMatrix = new SevenSegmentMatrix(size);
-        return new DigitRepresentation(representationMatrix);
-    }
-
-    public void getRepresentationOf(int digit, int size){
-
+        this.representedDigit = representedDigit;
     }
 
     public String[][] getMatrix(){
-        return null;
-    }
-
-    public String[][] representOneWithSize(int size){
-        return null;
+        return representationMatrix.getMatrix();
     }
 
     public int height(){
-        return 0;
+        return representationMatrix.getHeight();
     }
 
     public int width(){
-        return 0;
+        return representationMatrix.getWidth();
     }
 
     @Override

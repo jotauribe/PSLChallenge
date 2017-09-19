@@ -38,16 +38,10 @@ public class SevenSegmentMatrix implements RepresentationMatrix{
         initMatrix(height, width);
     }
 
-
-    /**
-     *
-     * @param size
-     */
     private void setSize(int size){
-        // To make this class completely reusable
-        // this validation must not be here
-        if(size < 1 || size > 10)
-            throw  new IllegalArgumentException("Size must be between 1 and 10");
+
+        if(size < 1 )
+            throw  new IllegalArgumentException("Size must be greater than 1 ");
         this.size = size;
     }
 
@@ -82,7 +76,7 @@ public class SevenSegmentMatrix implements RepresentationMatrix{
 
         int startPoint = ((size * 2) + 3)/2 + 1;
 
-        for(int i = startPoint; i < startPoint + 2 ; i++){
+        for(int i = startPoint; i < startPoint + size ; i++){
             sevenSegmentMatrix[i][width - 1] = verticalCharacter;
         }
 
@@ -101,7 +95,7 @@ public class SevenSegmentMatrix implements RepresentationMatrix{
 
         int startPoint = ((size * 2) + 3)/2 + 1;
 
-        for(int i = startPoint; i < startPoint + 2; i++){
+        for(int i = startPoint; i < startPoint + size; i++){
             sevenSegmentMatrix[i][0] = verticalCharacter;
         }
 
@@ -129,6 +123,18 @@ public class SevenSegmentMatrix implements RepresentationMatrix{
 
     public String[][] getMatrix(){
         return sevenSegmentMatrix.clone();
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWidth() {
+        return width;
     }
 
     @Override

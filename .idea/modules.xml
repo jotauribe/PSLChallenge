@@ -5,6 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/LCDDisplay.iml" filepath="$PROJECT_DIR$/.idea/modules/LCDDisplay.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/LCDDisplay_main.iml" filepath="$PROJECT_DIR$/.idea/modules/LCDDisplay_main.iml" group="LCDDisplay" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/LCDDisplay_test.iml" filepath="$PROJECT_DIR$/.idea/modules/LCDDisplay_test.iml" group="LCDDisplay" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PSLChallenge.iml" filepath="$PROJECT_DIR$/.idea/modules/PSLChallenge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Projects-LCDDisplay_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Projects-LCDDisplay_main.iml" group="LCDDisplay" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Projects-LCDDisplay_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Projects-LCDDisplay_test.iml" group="LCDDisplay" />
     </modules>
   </component>
 </project>

@@ -13,7 +13,7 @@ public class PrintingMatrixTest {
 
     @Test
     public void method(){
-
+        PrintingMatrix pm = new PrintingMatrix();
     }
 
 }
