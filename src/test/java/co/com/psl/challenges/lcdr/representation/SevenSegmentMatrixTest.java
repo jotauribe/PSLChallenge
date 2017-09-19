@@ -12,15 +12,6 @@ import static org.junit.Assert.*;
  **/
 public class SevenSegmentMatrixTest {
 
-    private int size;
-
-    private String[][] matrix;
-
-    public SevenSegmentMatrixTest(int size, String[][] matrix) {
-        this.size = size;
-        this.matrix = matrix;
-    }
-
     @Test
     public void drawSegmentA() throws Exception {
         SevenSegmentMatrix sevenSegmentMatrix = new SevenSegmentMatrix(2);
