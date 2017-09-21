@@ -1,12 +1,13 @@
-package co.com.psl.challenges.lcdr.representation;
+package co.com.psl.challenges.lcdr.printable.representation;
 
-import java.util.Arrays;
+import java.util.Iterator;
+import java.util.function.Consumer;
 
 /**
  * Created on 17/9/2017
  * By Jota Uribe
  **/
-public class SevenSegmentMatrix implements RepresentationMatrix{
+public class SevenSegmentMatrix implements RepresentationMatrix, Iterable<String>{
 
     private static final String DEFAULT_HORIZONTAL_CHARACTER = "-";
     private static final String DEFAULT_VERTICAL_CHARACTER = "|";
@@ -152,5 +153,48 @@ public class SevenSegmentMatrix implements RepresentationMatrix{
         }
 
         return printableStringMatrix.toString();
+    }
+
+    @Override
+    public Iterator iterator() {
+        return new SevenSegmentMatrixIterator(sevenSegmentMatrix);
+    }
+
+    @Override
+    public void forEach(Consumer action) {
+
+    }
+
+    class SevenSegmentMatrixIterator implements Iterator<String>{
+
+        private String[][] matrix;
+        private int currentPosition;
+
+        public SevenSegmentMatrixIterator(String[][] matrix) {
+            this.matrix = matrix;
+            currentPosition = 0;
+        }
+
+        @Override
+        public boolean hasNext() {
+            if(matrix.length >= currentPosition + 1)
+                return  true;
+            return false;
+        }
+
+        @Override
+        public String next() {
+            String line = getLine(currentPosition);
+            currentPosition++;
+            return line;
+        }
+
+        private String getLine(int index){
+            StringBuilder line = new StringBuilder();
+            for(int i = 0; i < matrix[index].length; i++){
+                line.append(matrix[index][i]);
+            }
+            return  line.toString();
+        }
     }
 }

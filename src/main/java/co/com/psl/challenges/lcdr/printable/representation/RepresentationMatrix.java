@@ -1,4 +1,4 @@
-package co.com.psl.challenges.lcdr.representation;
+package co.com.psl.challenges.lcdr.printable.representation;
 
 /**
  * Created on 19/9/2017

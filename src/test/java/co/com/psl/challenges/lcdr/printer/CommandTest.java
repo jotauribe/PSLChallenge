@@ -1,4 +1,4 @@
-package co.com.psl.challenges.lcdr;
+package co.com.psl.challenges.lcdr.printer;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -6,8 +6,6 @@ import org.junit.runners.Parameterized;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * Created on 16/9/2017

@@ -1,6 +1,8 @@
 package co.com.psl.challenges.lcdr.printer;
 
-import co.com.psl.challenges.lcdr.representation.DigitRepresentation;
+import co.com.psl.challenges.lcdr.printable.Printable;
+
+import java.util.Iterator;
 
 /**
  * Created on 16/9/2017
@@ -9,73 +11,102 @@ import co.com.psl.challenges.lcdr.representation.DigitRepresentation;
 
 public class PrintingMatrix {
 
-    private String[][] matrix;
-
-    private int digitsHeight;
-
-    private int digitsWidth;
+    private String[] rowArray;
 
     private int spaceBetweenDigits;
 
-    public PrintingMatrix(int digitsHeight,
-                          int digitsWidth,
-                          int spaceBetweenDigits){
+    public PrintingMatrix(int spaceBetweenDigits){
 
-        this.digitsHeight = digitsHeight;
-        this.digitsWidth = digitsWidth;
         this.spaceBetweenDigits = spaceBetweenDigits;
-        matrix = new String[0][0];
+        rowArray = new String[0];
     }
 
-    public void write(DigitRepresentation digitRepresentation){
+    public void write(Printable printable){
 
-        if(matrix.length == 0)
-            matrix = digitRepresentation.getMatrix();
+        Iterator<String> rowIterator = printable.getRowIterator();
+
+        String[] extension = new String[printable.height()];
+
+        int position = 0;
+        while(rowIterator.hasNext()){
+            String row = rowIterator.next();
+            extension[position] = row;
+            position++;
+        }
+
+        append(extension);
+
+    }
+
+    private void append(String[] extension){
+
+        int height = extension.length > matrixHeight()? extension.length : matrixHeight();
+
+        String[] currentRowArray;
+        String[] newRowArray = new String [height];
+
+        if(this.isEmpty())
+            currentRowArray = emptyRowArray(height);
         else
-            appendToRight(digitRepresentation);
+            currentRowArray = rowArrayWithAppendedSpace();
+
+        for(int i = 0; i < height; i++){
+            newRowArray[i] = currentRowArray[i] + extension[i];
+            //System.out.print("\n" + newRowArray[i]);
+        }
+
+        this.rowArray = newRowArray;
 
     }
 
-    private void appendToRight(DigitRepresentation digitRepresentation){
+    private String[] emptyRowArray(int height){
 
-        int newMatrixHeight = digitRepresentation.height() + matrixHeight();
-        int newMatrixWidth = + digitRepresentation.width() + matrixWidth() + spaceBetweenDigits;
+        String[] emptyRowArray = new String[height];
 
-        String[][] newMatrix = new String[newMatrixHeight][newMatrixWidth];
-        String[][] currentMatrixCopy = matrix.clone();
-
-        for(int i = 0; i < matrixHeight(); i++){
-            for(int j = 0; j < matrixWidth(); j++){
-                newMatrix[i][j] = currentMatrixCopy[i][j];
-            }
+        for(int i = 0; i < emptyRowArray.length; i++){
+            emptyRowArray[i] = "";
         }
-
-        int space = spaceBetweenDigits -1;
-
-        for(int i = matrixHeight() + space; i < newMatrixHeight; i++){
-            for(int j = matrixWidth() + space; j < newMatrixWidth; j++){
-                newMatrix[i][j] = currentMatrixCopy[i][j];
-            }
-        }
+        return emptyRowArray;
     }
 
-    private void initMatrix(int height, int width){
+    private String[] rowArrayWithAppendedSpace(){
 
-        matrix = new String[height][width];
+        String[] rowArrayWithAppendedSpace = rowArray.clone();
 
-        for (int i = 0; i < width; i++) {
-            for (int j = 0; j < height; j++) {
-                this.matrix[i][j] = " ";
-            }
+        String space = "";
+        for(int i = 0; i < spaceBetweenDigits; i++){
+            space += " ";
         }
+
+        for(int i = 0; i < rowArrayWithAppendedSpace.length; i++){
+            rowArrayWithAppendedSpace[i] = rowArrayWithAppendedSpace[i] + space;
+        }
+        return rowArrayWithAppendedSpace;
+    }
+
+    private boolean isEmpty(){
+        return rowArray.length == 0;
     }
 
     private int matrixHeight(){
-        return matrix.length;
+        return rowArray.length;
     }
 
     private int matrixWidth(){
-        return matrix[0].length;
+        return rowArray[0].length();
+    }
+
+    @Override
+    public String toString() {
+
+        StringBuilder printableString = new StringBuilder();
+
+        for(int i = 0; i < matrixHeight(); i++){
+            printableString.append(rowArray[i]);
+            printableString.append("\n");
+        }
+
+        return printableString.toString();
     }
 
 }

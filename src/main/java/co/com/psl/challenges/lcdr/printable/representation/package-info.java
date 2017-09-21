@@ -15,4 +15,4 @@
  *
  * @author Jota Uribe
  **/
-package co.com.psl.challenges.lcdr.representation;
+package co.com.psl.challenges.lcdr.printable.representation;

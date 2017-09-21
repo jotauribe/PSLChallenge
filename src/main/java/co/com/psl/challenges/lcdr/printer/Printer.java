@@ -1,7 +1,5 @@
 package co.com.psl.challenges.lcdr.printer;
 
-import co.com.psl.challenges.lcdr.Command;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
