@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 public class PrinterTest {
     @Test
     public void process() throws Exception {
-        Printer.process(new Command("4,234909988765"));
+        Printer.process(new Command("2,234909988765909090"));
     }
 
 }

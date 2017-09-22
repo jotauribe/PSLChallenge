@@ -1,5 +1,7 @@
 package co.com.psl.challenges.lcdr.printer;
 
+import java.math.BigInteger;
+
 /**
  * Created on 16/9/2017
  * By Jota Uribe
@@ -20,7 +22,7 @@ public class Command {
 
     private int size;
 
-    private int digits;
+    private String digits;
 
     public Command(String command) {
         separator = DEFAULT_SEPARATOR;
@@ -62,10 +64,15 @@ public class Command {
     }
 
     private void setSize(String string) {
-        int size = getNumberIn(string);
+
+        if (!isNumeric(string))
+            throw new NumberFormatException("Parameters in command must be only numbers");
+
+        BigInteger size = new BigInteger(string);
 
         //Validates that the size is  between miniMumSizeValue and MaximumSizeValue
-        if(size < minimumSizeValue || size > maximumSizeValue)
+        if( size.compareTo(BigInteger.valueOf(minimumSizeValue)) < 0
+                || size.compareTo(BigInteger.valueOf(maximumSizeValue)) > 0 )
             throw  new IllegalArgumentException(
                     "Size must be between "
                             + minimumSizeValue +
@@ -73,31 +80,24 @@ public class Command {
                             + maximumSizeValue
             );
 
-        this.size = size;
+        this.size = size.intValue();
     }
 
     private void setDigits(String digitString){
-        int number = getNumberIn(digitString);
-        digits = number;
+        if (!isNumeric(digitString))
+            throw new NumberFormatException("Parameters in command must be only numbers");
+        digits = digitString;
     }
 
-    private int getNumberIn(String string){
-        int number;
-        try {
-            number = Integer.parseInt(string);
-        } catch (NumberFormatException e) {
-            throw new NumberFormatException(
-                    "Parameters in command must be only numbers"
-            );
-        }
-        return number;
+    private boolean isNumeric(String string){
+        return string.matches("\\d+");
     }
 
     public int getSize(){
         return size;
     }
 
-    public int getDigits(){
+    public String getDigits(){
         return digits;
     }
 
