@@ -9,13 +9,13 @@ import java.util.Iterator;
  * By Jota Uribe
  **/
 
-public class PrintingMatrix {
+public class PrintMatrix {
 
     private String[] rowArray;
 
     private int spaceBetweenDigits;
 
-    public PrintingMatrix(int spaceBetweenDigits){
+    public PrintMatrix(int spaceBetweenDigits){
 
         this.spaceBetweenDigits = spaceBetweenDigits;
         rowArray = new String[0];
@@ -52,7 +52,6 @@ public class PrintingMatrix {
 
         for(int i = 0; i < height; i++){
             newRowArray[i] = currentRowArray[i] + extension[i];
-            //System.out.print("\n" + newRowArray[i]);
         }
 
         this.rowArray = newRowArray;

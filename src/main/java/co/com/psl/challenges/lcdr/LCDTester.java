@@ -5,6 +5,7 @@ package co.com.psl.challenges.lcdr;
  * By Jota Uribe
  **/
 
+import co.com.psl.challenges.lcdr.printer.Command;
 import co.com.psl.challenges.lcdr.printer.Printer;
 
 import java.util.ArrayList;
@@ -67,7 +68,7 @@ public class LCDTester {
             {
                 try
                 {
-                    impresorLCD.process(iterator.next(), espacioDig);
+                    impresorLCD.process(new Command(iterator.next(), espacioDig));
                 } catch (Exception ex)
                 {
                     System.out.println("Error: "+ex.getMessage());

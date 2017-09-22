@@ -85,8 +85,6 @@ public class SevenSegmentMatrix implements RepresentationMatrix, Iterable<String
 
     public void drawSegmentD(){
 
-        int startPoint = 0;
-
         for(int i = 1; i < size + 1; i++){
             sevenSegmentMatrix[height - 1][i] = horizontalCharacter;
         }
@@ -104,8 +102,6 @@ public class SevenSegmentMatrix implements RepresentationMatrix, Iterable<String
 
     public void drawSegmentF(){
 
-        int startPoint = ((size * 2) + 3)/2 + 1;
-
         for(int i = 1; i < size + 1; i++){
             sevenSegmentMatrix[i][0] = verticalCharacter;
         }
@@ -122,10 +118,6 @@ public class SevenSegmentMatrix implements RepresentationMatrix, Iterable<String
 
     }
 
-    public String[][] getMatrix(){
-        return sevenSegmentMatrix.clone();
-    }
-
     public int getSize() {
         return size;
     }
@@ -136,6 +128,10 @@ public class SevenSegmentMatrix implements RepresentationMatrix, Iterable<String
 
     public int getWidth() {
         return width;
+    }
+
+    public String[][] getMatrix(){
+        return sevenSegmentMatrix.clone();
     }
 
     @Override
@@ -158,11 +154,6 @@ public class SevenSegmentMatrix implements RepresentationMatrix, Iterable<String
     @Override
     public Iterator iterator() {
         return new SevenSegmentMatrixIterator(sevenSegmentMatrix);
-    }
-
-    @Override
-    public void forEach(Consumer action) {
-
     }
 
     class SevenSegmentMatrixIterator implements Iterator<String>{

@@ -18,8 +18,6 @@ public class Command {
 
     private int maximumSizeValue;
 
-    private String command;
-
     private int size;
 
     private int digits;
@@ -28,24 +26,26 @@ public class Command {
         separator = DEFAULT_SEPARATOR;
         minimumSizeValue = DEFAULT_MINIMUM_SIZE_VALUE;
         maximumSizeValue = DEFAULT_MAXIMUM_SIZE_VALUE;
-        setCommand(command);
-        setParameters();
+        setParameters(command);
     }
 
-    private void setCommand(String command){
+    public Command(String command, int spaceBetweenDigits) {
+        separator = DEFAULT_SEPARATOR;
+        minimumSizeValue = DEFAULT_MINIMUM_SIZE_VALUE;
+        maximumSizeValue = DEFAULT_MAXIMUM_SIZE_VALUE;
+        setParameters(command);
+    }
 
-        //Validates the existence of a valid separator in command
-        if ( !command.contains(separator) ) {
+    private void setParameters(String command){
+
+        //Validates the existence of a valid separator in the given command
+        if ( !command.contains(separator) )
             throw new IllegalArgumentException(
                     "Command string "
                             + command
                             + " does not contains a valid separator"
             );
-        }
-        this.command = command;
-    }
 
-    private void setParameters(){
         String[] parameters = command.split(separator);
 
         //Validates the number of parameters in command
@@ -58,7 +58,6 @@ public class Command {
 
         setSize(parameters[0]);
         setDigits(parameters[1]);
-
 
     }
 
@@ -77,9 +76,9 @@ public class Command {
         this.size = size;
     }
 
-    private void setDigits(String string){
-        int digit = getNumberIn(string);
-        this.digits = digit;
+    private void setDigits(String digitString){
+        int number = getNumberIn(digitString);
+        digits = number;
     }
 
     private int getNumberIn(String string){
@@ -100,5 +99,10 @@ public class Command {
 
     public int getDigits(){
         return digits;
+    }
+
+    public char[] getDigitsAsCharArray(){
+        String digitString = String.valueOf(digits);
+        return digitString.toCharArray();
     }
 }

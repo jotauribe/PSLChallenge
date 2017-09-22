@@ -6,15 +6,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Created on 17/9/2017
- * By Jota Uribe
- **/
-
-public class PrintingMatrixTest {
-
+ * Created by Jota Uribe on 21/9/2017.
+ */
+public class PrintMatrixTest {
     @Test
-    public void method(){
-        PrintingMatrix pm = new PrintingMatrix(10);
+    public void write() throws Exception {
+        PrintMatrix pm = new PrintMatrix(10);
         DigitRepresentation dr = DigitRepresentation.create('2', 2);
         DigitRepresentation dr2 = DigitRepresentation.create('4', 2);
         DigitRepresentation dr3 = DigitRepresentation.create('5', 2);
@@ -22,7 +19,6 @@ public class PrintingMatrixTest {
         pm.write(dr3);
         pm.write(dr2);
         System.out.print(pm);
-
     }
 
 }
