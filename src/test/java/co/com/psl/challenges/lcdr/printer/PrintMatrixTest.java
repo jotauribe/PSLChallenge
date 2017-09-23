@@ -18,7 +18,8 @@ public class PrintMatrixTest {
         pm.write(dr);
         pm.write(dr3);
         pm.write(dr2);
-        System.out.print(pm);
+        //System.out.print(pm);
+
     }
 
 }

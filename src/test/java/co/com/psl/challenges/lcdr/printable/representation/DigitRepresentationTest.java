@@ -1,6 +1,8 @@
 package co.com.psl.challenges.lcdr.printable.representation;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.*;
 
@@ -9,8 +11,14 @@ import static org.junit.Assert.*;
  */
 public class DigitRepresentationTest {
 
-    @Test(expected = IllegalArgumentException.class)
+    @Rule
+    public ExpectedException exceptionThrown = ExpectedException.none();
+
+    @Test()
     public void create_ANonDigitParameterPassed_ExceptionThrown() throws Exception {
+
+        exceptionThrown.expect(IllegalArgumentException.class);
+        exceptionThrown.expectMessage("A digit must be provided");
         DigitRepresentation.create('a', 2);
     }
 

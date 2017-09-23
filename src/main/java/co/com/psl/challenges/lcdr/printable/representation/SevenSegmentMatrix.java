@@ -7,7 +7,7 @@ import java.util.function.Consumer;
  * Created on 17/9/2017
  * By Jota Uribe
  **/
-public class SevenSegmentMatrix implements RepresentationMatrix, Iterable<String>{
+public class SevenSegmentMatrix implements Iterable<String>{
 
     private static final String DEFAULT_HORIZONTAL_CHARACTER = "-";
     private static final String DEFAULT_VERTICAL_CHARACTER = "|";
@@ -156,6 +156,11 @@ public class SevenSegmentMatrix implements RepresentationMatrix, Iterable<String
         return new SevenSegmentMatrixIterator(sevenSegmentMatrix);
     }
 
+
+    /**
+     * This iterator is used to hide the internal structure
+     * (implementation) of SevenSegmentMatrix.class
+     */
     class SevenSegmentMatrixIterator implements Iterator<String>{
 
         private String[][] matrix;

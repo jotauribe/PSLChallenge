@@ -49,8 +49,9 @@ public class DigitRepresentation implements Printable{
     }
 
     /**
+     * (This method is only used in testing)
      * This method provide access to the raw representation
-     * of the represented digit
+     * of the represented digit.
      *
      * @return the 2D string matrix used to represent the printable digit
      */

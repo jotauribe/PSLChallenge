@@ -2,7 +2,7 @@ package co.com.psl.challenges.lcdr.printable.representation;
 
 /**
  * Created on 19/9/2017
- * By Jota Uribe
+ * By J. Uribe
  *
  * The most useless interface ever
  *

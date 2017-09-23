@@ -225,7 +225,7 @@ public class SevenSegmentDigitRepresentationFactoryTest {
                 {" ", "-", "-", " "},
                 {" ", " ", " ", "|"},
                 {" ", " ", " ", "|"},
-                {" ", " ", " ", " "}
+                {" ", "-", "-", " "}
         };
 
         assertTrue(Arrays.deepEquals(s, ssm));

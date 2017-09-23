@@ -91,6 +91,7 @@ public class SevenSegmentDigitRepresentationFactory {
                 representation.drawSegmentA();
                 representation.drawSegmentB();
                 representation.drawSegmentC();
+                representation.drawSegmentD();
                 representation.drawSegmentF();
                 representation.drawSegmentG();
                 break;
