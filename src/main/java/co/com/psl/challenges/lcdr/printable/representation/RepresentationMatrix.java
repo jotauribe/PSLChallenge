@@ -6,9 +6,8 @@ package co.com.psl.challenges.lcdr.printable.representation;
  *
  * The most useless interface ever
  *
- * Dedicated to my dear friend, Juan D.,
- * because he always know how to do absolutely nothing.
+ * Dedicated to my dear friend, --------,
+ * because he always knows how to do absolutely nothing.
  *
  **/
-public interface RepresentationMatrix {
-}
+public interface RepresentationMatrix { }

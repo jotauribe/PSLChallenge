@@ -39,10 +39,39 @@ public class PrinterTest {
 
     @Test
     public void process() throws Exception {
-        //Printer.process(new Command("2,234909988765909090"));
-        Printer.process(new Command("2,9"));
+        Printer.process(new Command("2,9"), 2);
         SevenSegmentMatrix ssm = SevenSegmentDigitRepresentationFactory.getRepresentationOf('9', 2);
         assertEquals(ssm.toString(), outContent.toString());
+    }
+
+    @Test
+    public void process2() throws Exception {
+        Printer.process(new Command("2,923"), 2);
+
+        String[][] s = {
+                {" ", "-", "-", " ", " ", " ", " ", "-", "-", " ", " ", " ", " ", "-", "-", " "},
+                {"|", " ", " ", "|", " ", " ", " ", " ", " ", "|", " ", " ", " ", " ", " ", "|"},
+                {"|", " ", " ", "|", " ", " ", " ", " ", " ", "|", " ", " ", " ", " ", " ", "|"},
+                {" ", "-", "-", " ", " ", " ", " ", "-", "-", " ", " ", " ", " ", "-", "-", " "},
+                {" ", " ", " ", "|", " ", " ", "|", " ", " ", " ", " ", " ", " ", " ", " ", "|"},
+                {" ", " ", " ", "|", " ", " ", "|", " ", " ", " ", " ", " ", " ", " ", " ", "|"},
+                {" ", "-", "-", " ", " ", " ", " ", "-", "-", " ", " ", " ", " ", "-", "-", " "}
+        };
+
+        StringBuilder printableStringMatrix = new StringBuilder();
+
+        for(int i = 0; i < 7; i++){
+            StringBuilder line = new StringBuilder();
+            for(int j = 0; j < s[0].length; j++){
+                line.append(s[i][j]);
+            }
+            line.append("\n");
+            printableStringMatrix.append(line);
+        }
+
+        String comparable = printableStringMatrix.toString();
+
+        assertEquals(comparable, outContent.toString());
     }
 
 }

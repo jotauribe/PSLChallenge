@@ -31,13 +31,6 @@ public class Command {
         setParameters(command);
     }
 
-    public Command(String command, int spaceBetweenDigits) {
-        separator = DEFAULT_SEPARATOR;
-        minimumSizeValue = DEFAULT_MINIMUM_SIZE_VALUE;
-        maximumSizeValue = DEFAULT_MAXIMUM_SIZE_VALUE;
-        setParameters(command);
-    }
-
     private void setParameters(String command){
 
         //Validates the existence of a valid separator in the given command

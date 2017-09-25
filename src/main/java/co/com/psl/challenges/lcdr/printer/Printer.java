@@ -17,9 +17,9 @@ public class Printer {
      * @param command Entrada que contiene el size del segmento de los digito
      * y el numero a imprimir
      */
-    public static void process(Command command) {
+    public static void process(Command command, int spaceBetweenDigits) {
 
-        PrintMatrix printMatrix = new PrintMatrix(2);
+        PrintMatrix printMatrix = new PrintMatrix(spaceBetweenDigits);
 
         int size = command.getSize();
         char[] digitArray = command.getDigitsAsCharArray();
@@ -29,8 +29,12 @@ public class Printer {
             printMatrix.write(printableDigit);
         }
 
-        System.out.print(printMatrix);
+        print(printMatrix);
 
+    }
+
+    private static void print(PrintMatrix printMatrix){
+        System.out.print(printMatrix);
     }
 
     /**
