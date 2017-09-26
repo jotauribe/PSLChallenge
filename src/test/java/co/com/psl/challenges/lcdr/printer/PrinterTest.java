@@ -38,15 +38,18 @@ public class PrinterTest {
     }
 
     @Test
-    public void process() throws Exception {
-        Printer.process(new Command("2,9"), 2);
+    public void printADigit() throws Exception {
+        Printer printer = new Printer();
+        printer.process(new Command("2,9"), 2);
         SevenSegmentMatrix ssm = SevenSegmentDigitRepresentationFactory.getRepresentationOf('9', 2);
         assertEquals(ssm.toString(), outContent.toString());
+
     }
 
     @Test
-    public void process2() throws Exception {
-        Printer.process(new Command("2,923"), 2);
+    public void printADigitString() throws Exception {
+        Printer printer = new Printer();
+        printer.process(new Command("2,923"), 2);
 
         String[][] s = {
                 {" ", "-", "-", " ", " ", " ", " ", "-", "-", " ", " ", " ", " ", "-", "-", " "},
@@ -69,7 +72,7 @@ public class PrinterTest {
             printableStringMatrix.append(line);
         }
 
-        String comparable = printableStringMatrix.toString();
+        String comparable = printableStringMatrix.toString().replaceAll("\n+\\z", "");
 
         assertEquals(comparable, outContent.toString());
     }

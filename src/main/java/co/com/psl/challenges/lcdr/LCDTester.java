@@ -20,8 +20,8 @@ public class LCDTester {
     public static void main(String[] args) {
 
         // Establece los segmentos de cada numero
-        List<String> listaComando = new ArrayList<>();
-        String comando;
+        List<String> commandList = new ArrayList<>();
+        String command;
         int spaceBetweenDigits;
 
         try {
@@ -38,23 +38,29 @@ public class LCDTester {
 
                 spaceBetweenDigits = input.nextInt();
 
+                // se valida que el espaciado este entre 0 y 5
+                if(spaceBetweenDigits <0 || spaceBetweenDigits >5) {
+                    throw new IllegalArgumentException("El espacio entre "
+                            + "digitos debe estar entre 0 y 5");
+                }
+
                 do {
                     System.out.print("Comando: ");
-                    comando = input.next();
-                    if(!comando.equalsIgnoreCase(CADENA_FINAL)) {
-                        listaComando.add(comando);
+                    command = input.next();
+                    if(!command.equalsIgnoreCase(CADENA_FINAL)) {
+                        commandList.add(command);
                     }
-                }while (!comando.equalsIgnoreCase(CADENA_FINAL));
+                }while (!command.equalsIgnoreCase(CADENA_FINAL));
             }
 
             Printer impresorLCD = new Printer();
 
-            Iterator<String> iterator = listaComando.iterator();
+            Iterator<String> iterator = commandList.iterator();
             while (iterator.hasNext()) {
                 try {
                     impresorLCD.process(new Command(iterator.next()), spaceBetweenDigits);
                 } catch (Exception e) {
-                    System.out.println("Error: "+e.getMessage());
+                    System.out.println("Error: " + e.getMessage());
                 }
             }
         } catch (Exception e) {

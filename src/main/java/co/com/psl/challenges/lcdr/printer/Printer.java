@@ -3,11 +3,13 @@ package co.com.psl.challenges.lcdr.printer;
 import co.com.psl.challenges.lcdr.printable.Printable;
 import co.com.psl.challenges.lcdr.printable.representation.DigitRepresentation;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 public class Printer {
+
+    private int lineCounter;
+
+    public Printer(){
+        lineCounter = 0;
+    }
 
     /**
      *
@@ -17,7 +19,7 @@ public class Printer {
      * @param command Entrada que contiene el size del segmento de los digito
      * y el numero a imprimir
      */
-    public static void process(Command command, int spaceBetweenDigits) {
+    public void process(Command command, int spaceBetweenDigits) {
 
         PrintMatrix printMatrix = new PrintMatrix(spaceBetweenDigits);
 
@@ -29,12 +31,20 @@ public class Printer {
             printMatrix.write(printableDigit);
         }
 
-        print(printMatrix);
+        printLine(printMatrix);
 
     }
 
-    private static void print(PrintMatrix printMatrix){
+    private void printLine(PrintMatrix printMatrix){
+        if(lineCounter > 0)
+            printSpaceBetweenLines();
         System.out.print(printMatrix);
+        lineCounter++;
+
+    }
+
+    private void printSpaceBetweenLines(){
+        System.out.print("\n\n");
     }
 
     /**

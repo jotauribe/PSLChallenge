@@ -21,21 +21,41 @@ public class PrintMatrix {
         rowArray = new String[0];
     }
 
+    /**
+     * This method add to the right side of the print matrix
+     * the printable object passed as argument
+     *
+     * @param printable The object to be printed
+     */
     public void write(Printable printable){
 
-        Iterator<String> rowIterator = printable.getRowIterator();
+        String[] extension = buildMatrixExtension(printable);
 
-        String[] extension = new String[printable.height()];
+        append(extension);
+
+    }
+
+    /**
+     * This method build the matrix that will be added
+     * to the original print matrix
+     *
+     * @param extension The source for the print matrix extension
+     * @return
+     */
+    private String[] buildMatrixExtension(Printable extension){
+
+        Iterator<String> rowIterator = extension.getRowIterator();
+
+        String[] matrixExtension = new String[extension.height()];
 
         int position = 0;
         while(rowIterator.hasNext()){
             String row = rowIterator.next();
-            extension[position] = row;
+            matrixExtension[position] = row;
             position++;
         }
 
-        append(extension);
-
+        return matrixExtension;
     }
 
     private void append(String[] extension){
@@ -46,9 +66,9 @@ public class PrintMatrix {
         String[] newRowArray = new String [height];
 
         if(this.isEmpty())
-            currentRowArray = emptyRowArray(height);
+            currentRowArray = buildEmptyRowArray(height);
         else
-            currentRowArray = rowArrayWithAppendedSpace();
+            currentRowArray = buildRowArrayWithAppendedSpace();
 
         for(int i = 0; i < height; i++){
             newRowArray[i] = currentRowArray[i] + extension[i];
@@ -58,7 +78,7 @@ public class PrintMatrix {
 
     }
 
-    private String[] emptyRowArray(int height){
+    private String[] buildEmptyRowArray(int height){
 
         String[] emptyRowArray = new String[height];
 
@@ -68,7 +88,7 @@ public class PrintMatrix {
         return emptyRowArray;
     }
 
-    private String[] rowArrayWithAppendedSpace(){
+    private String[] buildRowArrayWithAppendedSpace(){
 
         String[] rowArrayWithAppendedSpace = rowArray.clone();
 
@@ -102,7 +122,8 @@ public class PrintMatrix {
 
         for(int i = 0; i < matrixHeight(); i++){
             printableString.append(rowArray[i]);
-            printableString.append("\n");
+            if(i != matrixHeight() -1)
+                printableString.append("\n");
         }
 
         return printableString.toString();

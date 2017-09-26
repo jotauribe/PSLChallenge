@@ -136,19 +136,7 @@ public class SevenSegmentMatrix implements Iterable<String>{
 
     @Override
     public String toString() {
-
-        StringBuilder printableStringMatrix = new StringBuilder();
-
-        for(int i = 0; i < height; i++){
-            StringBuilder line = new StringBuilder();
-            for(int j = 0; j < width; j++){
-                line.append(sevenSegmentMatrix[i][j]);
-            }
-            line.append("\n");
-            printableStringMatrix.append(line);
-        }
-
-        return printableStringMatrix.toString();
+        return String.join("\n", this);
     }
 
     @Override
